@@ -1,3 +1,5 @@
+CREATE DATABASE catalogue_db;
+USE catalogue_db;
 
 CREATE TABLE IF NOT EXISTS projects (
     id INT AUTO_INCREMENT PRIMARY KEY,
