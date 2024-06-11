@@ -1,14 +1,16 @@
 package com.intercatalogue.intercatalogue_api.model;
 
 import java.util.Date;
+import java.util.List;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.Convert;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-
+import jakarta.persistence.Converter;
 import lombok.Data;
 
 @Data
@@ -37,6 +39,7 @@ public class Project {
 	private Date creationDate;
 	
 	@Column(name ="tags")
-	private String tags;
+	@Convert(converter = StringListConverter.class)
+	private List<String> tags;
 
 }

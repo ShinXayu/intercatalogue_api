@@ -1,6 +1,7 @@
 package com.intercatalogue.intercatalogue_api.controller;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -95,7 +96,7 @@ public class ProjectController {
 			{
 				currentProject.setUrl(url);
 			}
-			String tags = Project.getTags();
+			List<String> tags = Project.getTags();
 			if (tags != null)
 			{
 				currentProject.setTags(tags);
