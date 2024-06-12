@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import com.intercatalogue.intercatalogue_api.model.Project;
 import com.intercatalogue.intercatalogue_api.service.ProjectService;
@@ -28,6 +29,7 @@ public class ProjectController {
 	 * @return The Project object saved
 	 */
 	@PostMapping("/Project")
+	@CrossOrigin(origins = "http://localhost:4200")
 	public Project createProject(@RequestBody Project Project) {
 		return ProjectService.saveProject(Project);
 	}
@@ -39,6 +41,7 @@ public class ProjectController {
 	 * @return An Project object full filled
 	 */
 	@GetMapping("/Project/{id}")
+	@CrossOrigin(origins = "http://localhost:4200")
 	public Project getProject(@PathVariable("id") final Long id) {
 		Optional<Project> Project = ProjectService.getProject(id);
 		if(Project.isPresent()) {
@@ -53,6 +56,7 @@ public class ProjectController {
 	 * @return - An Iterable object of Project full filled
 	 */
 	@GetMapping("/Projects")
+	@CrossOrigin(origins = "http://localhost:4200")
 	public Iterable<Project> getProjects() {
 		return ProjectService.getProjects();
 	}
